@@ -10,10 +10,10 @@
 <!-- DataTables  & Plugins -->
 <script src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
 <script>
- $(document).ready(function() {
+$(document).ready(function() {
     $('#example').DataTable();
-} );
-  </script>
+});
+</script>
 
 <!--PAGE PLUGINS
 jQuery Mapael -->
@@ -28,6 +28,13 @@ jQuery Mapael -->
 <script src="dist/js/demo.js"></script>
 <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
 <script src="dist/js/pages/dashboard2.js"></script>
+<!-- <script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script> -->
+<script src="package/dist/sweetalert2.all.min.js"></script>
+<script>
+document.querySelector(".third").addEventListener('click', function() {
+    swal("Our First Alert", "With some body text and success icon!", "success");
+});
+</script>
 </body>
-</html>
 
+</html>
