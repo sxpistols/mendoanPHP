@@ -1,7 +1,7 @@
  <!-- Main Sidebar Container -->
  <aside class="main-sidebar elevation-4">
      <!-- Brand Logo -->
-     <a href="index3.html" class="brand-link">
+     <a href="dashboard.php" class="brand-link">
          <img src="dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
              style="opacity: .8">
          <span class="brand-text font-weight-dark">Mendoan</span>
@@ -13,7 +13,7 @@
              <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu"
                  data-accordion="false">
                  <li class="nav-item">
-                     <a href="dashboard.php" class="nav-link active">
+                     <a href="dashboard.php" class="nav-link">
                          <i class="nav-icon fas fa-tachometer-alt"></i>
                          <p>
                              Karyawan
@@ -34,15 +34,15 @@
                              </a>
                          </li>
                          <li class="nav-item">
-                             <a href="list_karyawan_resign.php" class="nav-link">
-                                 <i class="far fa-circle nav-icon"></i>
-                                 <p>Karyawan Resign</p>
-                             </a>
-                         </li>
-                         <li class="nav-item">
                              <a href="list_karyawan_mutasi.php" class="nav-link">
                                  <i class="far fa-circle nav-icon"></i>
                                  <p>Karyawan Mutasi</p>
+                             </a>
+                         </li>
+                         <li class="nav-item">
+                             <a href="list_karyawan_resign.php" class="nav-link">
+                                 <i class="far fa-circle nav-icon"></i>
+                                 <p>Karyawan Resign</p>
                              </a>
                          </li>
                          <li class="nav-item">

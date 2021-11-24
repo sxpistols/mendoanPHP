@@ -28,7 +28,7 @@ include "sidebar.php";
              $b=1;
               foreach ($result2['karyawan'] as $Sum2){
                ?>
-            <div style="text-transform: uppercase; font-weight: bold; margin-top:20px">
+            <div style="text-transform: uppercase; font-weight: bold; margin-top:0px; font-size: 14px;">
                 <?php echo $Sum2['fullname']?> -
                 <?php echo $Sum2['status']?></div>
             <div style="color:#A9A9A9;">Lama Bekerja : <?php echo $Sum2['year']?> Tahun, <?php echo $Sum2['month']?>
@@ -56,7 +56,7 @@ include "sidebar.php";
                         </div>
                     </div>
                 </div>
-                <div class="row" style="margin-top: 10px;">
+                <div class="row">
                     <div class="col-3">
                         <span style="font-weight: bold;"> NIK Karyawan </span>
                         <div class="card" style="font-size: 14px; margin-top: 5px">
@@ -82,7 +82,7 @@ include "sidebar.php";
                         </div>
                     </div>
                 </div>
-                <div class="row" style="margin-top: 10px;">
+                <div class="row">
                     <div class="col-3">
                         <span style="font-weight: bold;"> Trello username </span>
                         <div class="card" style="font-size: 14px;margin-top: 5px">
@@ -109,7 +109,6 @@ include "sidebar.php";
                     </div>
                 </div>
                 <hr>
-                </hr>
             </div>
             <span style="color:#696969; font-weight: bold;">CONTACT INFORMATION </span>
             <div class="container">
@@ -121,7 +120,7 @@ include "sidebar.php";
                         </div>
                     </div>
                 </div>
-                <div class="row" style="margin-top: 10px;">
+                <div class="row">
                     <div class="col-4">
                         <span style="font-weight: bold;"> Nomor Telepon </span>
                         <div class="card" style="font-size: 14px; margin-top: 5px">
@@ -143,7 +142,7 @@ include "sidebar.php";
                         </div>
                     </div>
                 </div>
-                <div class="row" style="margin-top: 10px;">
+                <div class="row">
                     <div class="col-4">
                         <span style="font-weight: bold;"> Identitas Digunakan </span>
                         <div class="card" style="font-size: 14px; margin-top: 5px">
@@ -164,12 +163,14 @@ include "sidebar.php";
                         </div>
                     </div>
                 </div>
-                <div class="row" style="margin-top: 5px;">
+                <div class="row">
                     <div class="col-1">
-                        <button type="submit" class="btn btn-success">Update</button>
+                        <button type="submit" class="btn btn-success"
+                            style="padding: 5px 0px 5px 0px; width: 70px; font-size: 13px;">Update</button>
                     </div>
-                    <div class="col-1 offset-1">
-                        <button type="submit" class="btn btn-danger">Resign</button>
+                    <div class="col-1">
+                        <button type="submit" class="btn btn-danger"
+                            style="padding: 5px 0px 5px 0px; width: 70px; font-size: 13px;">Resign</button>
                     </div>
                 </div>
             </div>

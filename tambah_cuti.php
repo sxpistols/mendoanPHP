@@ -61,8 +61,8 @@ $Sum2=$result2['karyawan'];
                     </div>
                     <div class="row">
                         <div class="col-1">
-                            <button type="submit" class="btn btn-success"
-                                onclick="return confirm ('Anda Yakin')">Submit</button>
+                            <button type="submit" class="btn btn-primary"
+                                style="padding: 5px 0px 5px 0px; width: 70px; font-size: 13px;">Submit</button>
                         </div>
                     </div>
         </form>

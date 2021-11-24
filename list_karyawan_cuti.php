@@ -23,6 +23,10 @@ $konten2=utf8_encode($konten2);
 $result2=json_decode($konten2,true);
 $Sum2=$result2['Cuti'];
  ?>
+                        <a href="export_excel_cuti.php" class="btn btn-success btn-sm active" role="button"
+                            aria-pressed="true" style="width: 90px; font-size: 14px; padding: 0px 0px 0px 0px;">Save to
+                            Excel</a>
+                        <br>
                         <table id="example" class="table" style="width:100%">
                             <thead>
                                 <tr>
