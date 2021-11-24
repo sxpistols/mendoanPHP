@@ -22,6 +22,8 @@ include "sidebar.php";
     }
     .container form button{
         margin-top:50px;
+        margin-bottom:30px;
+        margin-left:20px;
     }
 </style>
 <div class="content-wrapper">
@@ -195,7 +197,7 @@ include "sidebar.php";
     <div class="col-1">
       <button type="submit"  class="btn btn-success">Tambah</button> 
     </div>
-    <div class="col-1 offset-1">
+    <div class="col-1">
       <button type="reset" class="btn btn-danger">Reset</button>
     </div>
 </div>

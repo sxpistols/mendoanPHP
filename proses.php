@@ -42,7 +42,29 @@
     curl_setopt($curl2, CURLOPT_POSTFIELDS,"user_id=$user_id&password=$password&fullname=$fullname&email=$email&");
     curl_setopt($curl2, CURLOPT_RETURNTRANSFER, 1);
     $response2 = curl_exec($curl2);
+?>
+<head>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/7.33.1/sweetalert2.min.css">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+</head>
 
-    //echo $response2; 
-
-    header('Location: tambah.php');
+<body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/7.33.1/sweetalert2.min.js"></script>
+<script type='text/javascript'>
+Swal.fire({
+  title: 'Anda akan menambahkan data karyawan, apakah anda ingin melanjutkan?',
+  text: "You won't be able to revert this!",
+  type: 'warning',
+  showCancelButton: true,
+  confirmButtonColor: '#3085d6',
+  cancelButtonColor: '#d33',
+  confirmButtonText: 'Yes'
+})
+.then(function() {
+    window.location = "tambah.php";
+});
+</script> 
+</body>

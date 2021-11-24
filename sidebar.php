@@ -94,7 +94,7 @@
                      </a>
                  </li>
                  <li class="nav-item">
-                     <a href="" class="nav-link">
+                     <a href="Project_Mandays.php" class="nav-link">
                          <i class="nav-icon fa fa-unlock"></i>
                          <p>
                              Projects
