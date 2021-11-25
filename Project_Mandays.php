@@ -29,17 +29,10 @@ include "sidebar.php";
                         <h2 class="m-0">Daftar Mandays Project Tahun <?php echo $tahuntampil ?></h2>
                         <form action="" method="GET" id="form_id">
                         <select id="tahun" name="tahun" onChange="document.getElementById('form_id').submit();" style="width:90px; height:30px; margin-right:30px;">
-                            <option value="">Pilih Tahun</option>
-                            <option value="2012">2012</option>
-                            <option value="2013">2013</option>
-                            <option value="2014">2014</option>
-                            <option value="2015">2015</option>
-                            <option value="2016">2016</option>
-                            <option value="2017">2017</option>
-                            <option value="2018">2018</option>
-                            <option value="2019">2019</option>
-                            <option value="2020">2020</option>
-                            <option value="2021">2021</option>                 
+                            <option value="" disabled>Pilih Tahun</option>
+                            <option <?php if(!empty($tahuntampil)){ echo $tahuntampil == '2019' ? 'selected':''; } ?> value="2019">2019</option>
+                            <option <?php if(!empty($tahuntampil)){ echo $tahuntampil == '2020' ? 'selected':''; } ?> value="2020">2020</option>
+                            <option <?php if(!empty($tahuntampil)){ echo $tahuntampil == '2021' ? 'selected':''; } ?> value="2021">2021</option>                 
                         </select>
                         <?php 
                         $tahunkirim= "2021";

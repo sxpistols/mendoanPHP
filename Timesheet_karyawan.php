@@ -19,7 +19,7 @@ include "sidebar.php";
             ?>
                         <h2 style="margin-bottom: 10px;">Daily Activity <?php echo $tgl_tampil?></h2>
                         <form action="" method="GET" id="form_id">
-                            <input type="date" name="tanggal" onChange="document.getElementById('form_id').submit();">
+                            <input type="date" name="tanggal" onChange="document.getElementById('form_id').submit();" value="<?php echo $tgl_tampil ?>">
                             <!-- <button type="reset" class="btn btn-primary"
                                 style="padding: 5px 0px 5px 0px; width: 70px; font-size: 13px;">Show</button> -->
                         </form>
