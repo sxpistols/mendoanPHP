@@ -1,8 +1,10 @@
 <?php 
+session_start();
 include "css.php";
 include "navbar.php";
 include "sidebar.php";
 ?>
+<link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
 <style>
     .card select{
         margin-top:10px;
@@ -17,9 +19,16 @@ include "sidebar.php";
             <div class="row mb-2">
                 <div class="col-sm-12">
                     <div class="card" style="width: auto; height: auto; text-align: left; padding: 15px 10px 15px 20px;">
-                        <h2 class="m-0">Daftar Mandays Project 2021</h2>
+                        <?php 
+                        if(isset($_GET['tahun'])){
+                        $tahuntampil=$_GET["tahun"];
+                        }else{
+                        $tahuntampil =date("Y");
+                        }
+                        ?>
+                        <h2 class="m-0">Daftar Mandays Project Tahun <?php echo $tahuntampil ?></h2>
                         <form action="" method="GET" id="form_id">
-                        <select id="tahun" name="tahun" onChange="document.getElementById('form_id').submit();">
+                        <select id="tahun" name="tahun" onChange="document.getElementById('form_id').submit();" style="width:90px; height:30px; margin-right:30px;">
                             <option value="">Pilih Tahun</option>
                             <option value="2012">2012</option>
                             <option value="2013">2013</option>
@@ -32,16 +41,24 @@ include "sidebar.php";
                             <option value="2020">2020</option>
                             <option value="2021">2021</option>                 
                         </select>
+                        <?php 
+                        $tahunkirim= "2021";
+                        if(isset($_GET['tahun'])){
+                        $tahunkirim=$_GET["tahun"];
+                        }
+		                $_SESSION['Tahunkirim'] =$tahunkirim;
+                        echo "<a href='export_excel_project_mandays.php' class='btn btn-success btn-sm active' role='button'
+                            aria-pressed='true' style='height:30px; width: 90px; font-size: 14px; padding: 0px 0px 0px 0px;'>EXPORT</a>";
+                        ?>
                         </form>
-                        <a target="_blank" href="export_excel_project_mandays.php">EXPORT KE EXCEL</a>
                     </div>
                     <div class="card" style="width: auto; height: auto; text-align: left; padding: 15px 10px 15px 20px;">
 <?php 
-if(isset($_GET['tahun'])){
+    if(isset($_GET['tahun'])){
     $tahun=$_GET["tahun"];
-}else{
+    }else{
     $tahun =date("Y");
-}
+    }
     $url = "http://192.168.3.250:9966/api/trello/projectmandays?tahun=";
     $lurl = $tahun ;
     $sumber2 = "$url$lurl";
@@ -68,14 +85,14 @@ if(isset($_GET['tahun'])){
       foreach ($result2['Mandays'] as $Sum2){
       ?>
                                 <tr>
-                                    <td><?php echo $Sum2['project']?></td>
+                                    <td><a href=""><?php echo $Sum2['project']?></a></td>
                                     <td><?php echo $Sum2['status']?></td>
                                     <td><?php echo $Sum2['project_type']?></td>
                                     <td><?php echo $Sum2['fullname']?></td>
                                     <td><?php echo $Sum2['mandays']?></td>
-                                    <td><?php echo $Sum2['jumlah']?></td>
-                                    <td><?php echo $Sum2['nilai_project']?></td>
-                                    <td><?php echo date("Y")?></td>
+                                    <td style="color:green;font-weight: bold;"><?php echo $Sum2['jumlah']?></td>
+                                    <td><?php echo number_format($Sum2['nilai_project'])?></td>
+                                    <td><a href=""><i class='bx bx-edit'></i></a></td>
                                 </tr>
                                 <?php
     $no++; } ?>

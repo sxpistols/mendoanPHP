@@ -41,8 +41,8 @@
 				<a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
 			</div>
 			<span>or use your account</span>
-			<input type="email" placeholder="Email" />
-			<input type="password" placeholder="Password" />
+			<input name ="email" type="email" placeholder="Email" />
+			<input name ="password"type="password" placeholder="Password" />
 			<a href="#">Forgot your password?</a>
 			<button>Sign In</button>
 		</form>
@@ -70,10 +70,8 @@
         integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
         crossorigin="anonymous"></script>
 <script>
-	 $(document).ready(function () {
-	$(document).on('click', '#login', function () {
-                showLoginPage();
-            });
+        // jQuery codes
+        $(document).ready(function () {
 
             // trigger when login form is submitted
             $(document).on('submit', '#login_form', function () {
@@ -104,10 +102,86 @@
                         login_form.find('input').val('');
                     }
                 });
+
                 return false;
             });
-		});
-</script>
+
+
+            // function to set cookie
+            function setCookie(cname, cvalue, exdays) {
+                var d = new Date();
+                d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
+                var expires = "expires=" + d.toUTCString();
+                document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+            }
+
+            // show home page
+            function showHomePage() {
+
+                // validate jwt to verify access
+                var jwt = getCookie('jwt');
+                $.post("api/validate_token.php", JSON.stringify({ jwt: jwt })).done(function (result) {
+
+                    // if valid, show homepage
+                    window.location = "dashboard.php";
+
+                    $('#content').html(html);
+                    showLoggedInMenu();
+                })
+
+                    // show login page on error
+                    .fail(function (result) {
+                        showLoginPage();
+                        $('#response').html("<div class='alert alert-danger'>Please login to access the home page.</div>");
+                    });
+            }
+
+            // get or read cookie
+            function getCookie(cname) {
+                var name = cname + "=";
+                var decodedCookie = decodeURIComponent(document.cookie);
+                var ca = decodedCookie.split(';');
+                for (var i = 0; i < ca.length; i++) {
+                    var c = ca[i];
+                    while (c.charAt(0) == ' ') {
+                        c = c.substring(1);
+                    }
+
+                    if (c.indexOf(name) == 0) {
+                        return c.substring(name.length, c.length);
+                    }
+                }
+                return "";
+            }
+
+            // if the user is logged in
+            function showLoggedInMenu() {
+                // hide login and sign up from navbar & show logout button
+                $("#login, #sign_up").hide();
+                $("#logout").show();
+            }
+
+
+
+            // function to make form values to json format
+            $.fn.serializeObject = function () {
+
+                var o = {};
+                var a = this.serializeArray();
+                $.each(a, function () {
+                    if (o[this.name] !== undefined) {
+                        if (!o[this.name].push) {
+                            o[this.name] = [o[this.name]];
+                        }
+                        o[this.name].push(this.value || '');
+                    } else {
+                        o[this.name] = this.value || '';
+                    }
+                });
+                return o;
+            };
+        });
+    </script>
  
 </body>
 </html>

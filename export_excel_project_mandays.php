@@ -1,39 +1,12 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<title>Daftar Mandays Project</title>
-</head>
-<body>
-	<style type="text/css">
-	body{
-		font-family: sans-serif;
-	}
-	table{
-		margin: 20px auto;
-		border-collapse: collapse;
-	}
-	table th,
-	table td{
-		border: 1px solid #3c3c3c;
-		padding: 3px 8px;
-
-	}
-	a{
-		background: blue;
-		color: #fff;
-		padding: 8px 10px;
-		text-decoration: none;
-		border-radius: 2px;
-	}
-	</style>
-
 	<?php
 	header("Content-type: application/vnd-ms-excel");
-	header("Content-Disposition: attachment; filename=Data Pegawai.xls");
+	header("Content-Disposition: attachment; filename=Daftar Mandays Project.xls");
+	session_start();
+	$tahunbaca = $_SESSION['Tahunkirim'];
 	?>
 
 	<center>
-		<h1>Daftar Mandays Project</h1>
+		<h1>Daftar Mandays Project Tahun <?php echo $tahunbaca ?></h1>
 	</center>
 
 	<table border="1">
@@ -46,24 +19,27 @@
             <th>USED</th>
             <th>NILAI RUPIAH</th>
 		</tr>
-		<?php 
-		// koneksi database
-		$koneksi = mysqli_connect("localhost","root","","pegawai");
-
-		// menampilkan data pegawai
-		$data = mysqli_query($koneksi,"select * from data_pegawai");
-		$no = 1;
-		while($d = mysqli_fetch_array($data)){
+		<?php
+    $url = "http://192.168.3.250:9966/api/trello/projectmandays?tahun=";
+    $lurl = $tahunbaca ;
+    $sumber2 = "$url$lurl";
+    $ch = curl_init(); 
+    curl_setopt($ch, CURLOPT_URL, $sumber2);
+    curl_setopt($ch,CURLOPT_USERAGENT,'Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.8.1.13) Gecko/20080311 Firefox/2.0.0.13');
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1); 
+    $output = curl_exec($ch); 
+    curl_close($ch);      
+    $result2 = json_decode($output, TRUE);
+	 foreach ($result2['Mandays'] as $Sum2){
 		?>
 		<tr>
-			<td><?php echo $no++; ?></td>
-			<td><?php echo $d['nama']; ?></td>
-			<td><?php echo $d['alamat']; ?></td>
-			<td><?php echo $d['telepon']; ?></td>
+			<td><?php echo $Sum2['project']?></td>
+            <td><?php echo $Sum2['status']?></td>
+            <td><?php echo $Sum2['project_type']?></td>
+            <td><?php echo $Sum2['fullname']?></td>
+            <td><?php echo $Sum2['mandays']?></td>
+            <td><?php echo $Sum2['jumlah']?></td>
+            <td><?php echo $Sum2['nilai_project']?></td>
 		</tr>
-		<?php 
-		}
-		?>
+<?php }  ?>
 	</table>
-</body>
-</html>
