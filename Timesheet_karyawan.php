@@ -19,9 +19,8 @@ include "sidebar.php";
             ?>
                         <h2 style="margin-bottom: 10px;">Daily Activity <?php echo $tgl_tampil?></h2>
                         <form action="" method="GET" id="form_id">
-                            <input type="date" name="tanggal" onChange="document.getElementById('form_id').submit();" value="<?php echo $tgl_tampil ?>">
-                            <!-- <button type="reset" class="btn btn-primary"
-                                style="padding: 5px 0px 5px 0px; width: 70px; font-size: 13px;">Show</button> -->
+                            <input type="date" name="tanggal" onChange="document.getElementById('form_id').submit();"
+                                value="<?php echo $tgl_tampil ?>">
                         </form>
                     </div>
                     <div class="card"
@@ -40,7 +39,7 @@ if(isset($_GET['tanggal'])){
     $konten2=utf8_encode($konten2);
     $result2=json_decode($konten2,true);
 ?>
-                        <table id="example" class="table" style="width:100%">
+                        <table id="example" class="table  table-bordered table-striped" style="width:100%">
                             <thead>
                                 <tr>
                                     <th>NAMA KARYAWAN</th>
@@ -54,7 +53,9 @@ if(isset($_GET['tanggal'])){
       ?>
                                 <tr>
                                     <td><?php echo $Sum2['fullname']?></td>
-                                    <td><a href=""><?php echo $Sum2['name']?></td>
+                                    <td><a
+                                            href="detail_timesheet.php?board_id=<?=$Sum2['board_id']?>&tanggal=<?=$Sum2['tanggal']?>"><?php echo $Sum2['name']?>
+                                    </td>
                                 </tr>
                                 <?php
     $no++; } ?>

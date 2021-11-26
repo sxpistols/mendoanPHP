@@ -27,9 +27,9 @@ $Sum2=$result2['Mutasi'];
                             aria-pressed="true" style="width: 90px; font-size: 14px; padding: 0px 0px 0px 0px;">Save to
                             Excel</a>
                         <br>
-                        <table id="example" class="table" style="width:100%">
+                        <table id="example" class="table table-bordered table-striped" style="width:100%">
                             <thead>
-                                <tr>
+                                <tr style="text-align: center;">
                                     <th class="has-text-grey">NO</th>
                                     <th class="has-text-grey">NAMA KARYAWAN</th>
                                     <th class="has-text-grey">DIVISI SAAT INI</th>
@@ -43,7 +43,7 @@ $Sum2=$result2['Mutasi'];
       for($a = 0; $a <count ($Sum2); $a++){
       ?>
                                 <tr>
-                                    <td><?php echo $no ?></td>
+                                    <td style="text-align: center;"><?php echo $no ?></td>
                                     <td><?php echo $Sum2[$a]['fullname']?>
                                     <td><?php echo $Sum2[$a]['divisi']?></td>
                                     <td><?php echo $Sum2[$a]['created_by']?></td>
