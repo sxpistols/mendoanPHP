@@ -39,7 +39,7 @@ include "sidebar.php";
                         if(isset($_GET['tahun'])){
                         $tahunkirim=$_GET["tahun"];
                         }
-		                $_SESSION['Tahunkirim'] =$tahunkirim;
+                        $_SESSION['Tahunkirim'] =$tahunkirim;
                         echo "<a href='export_excel_project_mandays.php' class='btn btn-success btn-sm active' role='button'
                             aria-pressed='true' style='height:30px; width: 90px; font-size: 14px; padding: 0px 0px 0px 0px;'>EXPORT</a>";
                         ?>
@@ -85,7 +85,7 @@ include "sidebar.php";
                                     <td><?php echo $Sum2['mandays']?></td>
                                     <td style="color:green;font-weight: bold;"><?php echo $Sum2['jumlah']?></td>
                                     <td><?php echo number_format($Sum2['nilai_project'])?></td>
-                                    <td><a href=""><i class='bx bx-edit'></i></a></td>
+                                    <td><a href="edit_project_mandays.php?project_id=<?=$Sum2['id']?>"><i class='bx bx-edit'></i></a></td>
                                 </tr>
                                 <?php
     $no++; } ?>
