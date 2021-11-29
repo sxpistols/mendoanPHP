@@ -78,7 +78,7 @@ include "sidebar.php";
       foreach ($result2['Mandays'] as $Sum2){
       ?>
                                 <tr>
-                                    <td><a href=""><?php echo $Sum2['project']?></a></td>
+                                    <td><a href="detail_project.php?id=<?=$Sum2['id']?>"><?php echo $Sum2['project']?></a></td>
                                     <td><?php echo $Sum2['status']?></td>
                                     <td><?php echo $Sum2['project_type']?></td>
                                     <td><?php echo $Sum2['fullname']?></td>
