@@ -134,7 +134,7 @@
                      </a>
                  </li>
                  <li class="nav-item">
-                     <a href="index.php" class="nav-link">
+                     <a href="logout.php" class="nav-link">
                          <i class="nav-icon fa fa-sign-out-alt"></i>
                          <p>
                              Logout
@@ -147,3 +147,4 @@
      </div>
      <!-- /.sidebar -->
  </aside>
+

@@ -1,0 +1,13 @@
+{
+    "name": "asus/mendoan-php",
+    "authors": [
+        {
+            "name": "nugroho62",
+            "email": "nugrohotriatmojo62@gmail.com"
+        }
+    ],
+    "require": {
+        "vlucas/phpdotenv": "^5.4",
+        "firebase/php-jwt": "^5.5"
+    }
+}
