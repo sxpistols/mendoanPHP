@@ -1,4 +1,6 @@
 <?php 
+include "direct_jwt.php";
+include "timeout.php";
 include "css.php";
 include "navbar.php";
 include "sidebar.php";
